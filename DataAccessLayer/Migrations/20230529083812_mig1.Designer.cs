@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230526104439_mig1")]
+    [Migration("20230529083812_mig1")]
     partial class mig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,7 +33,7 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("Description2")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
+                    b.Property<string>("Image1")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
@@ -120,8 +120,8 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("DayNight")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Description")
-                        .HasColumnType("int");
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
