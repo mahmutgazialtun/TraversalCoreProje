@@ -5,7 +5,6 @@
         Layout = "~/Views/Shared/_UILayout.cshtml";
     }
 
-    <!doctype html>
     <html lang="zxx">
     <body>
 
@@ -30,24 +29,25 @@
                     <div class="row">
                         @foreach (var item in Model)
                         {
-                        <div class="col-lg-4 col-md-4 col-6">
-                            <div class="column">
-                                <a href="blog-single.html"><img src="@item.Image" alt="" class="img-fluid"></a>
-                                <div class="info">
-                                    <h4><a href="blog-single.html">@item.City</a></h4>
-                                    <p>@item.DayNight</p>
-                                    <div class="dst-btm">
-                                        <h6 class="">Başlayan fiyatlarla </h6>
-                                        <span>@item.Price ₺</span>
+                            <div class="col-lg-4 col-md-4 col-6">
+                                <div class="column">
+                                    <a href="/Destination/DestinationDetails/@item.DestinationID"><img src="@item.Image" alt="" class="img-fluid"></a>
+                                    <div class="info">
+                                        <h4><a href="blog-single.html">@item.City</a></h4>
+                                        <p>@item.DayNight</p>
+                                        <div class="dst-btm">
+                                            <h6 class="">Başlayan fiyatlarla </h6>
+                                            <span>@item.Price ₺</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         }
                     </div>
                 </div>
             </div>
         </section>
+        <link rel="stylesheet" href="~/Traversal-Liberty/assets/css/style-liberty.css" />
+        <script src="~/Traversal-Liberty/assets/js/bootstrap.min.js"></script>
     </body>
-
 </html>
