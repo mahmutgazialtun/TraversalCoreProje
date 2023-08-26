@@ -12,13 +12,13 @@ namespace SignalRApi.Model
     public class VisitorService
     {
         private readonly Context _context;
-        private readonly IHubContext<VisitorHubs> _hubContext;
+        private readonly IHubContext<VisitorHub> _hubContext;
 
-        public VisitorService(Context context, IHubContext<VisitorHubs> hubContext)
+        public VisitorService(Context context, IHubContext<VisitorHub> hubContext)
         {
             _context = context;
             _hubContext = hubContext;
-        } 
+        }
         public IQueryable<Visitor> GetList()
         {
             return _context.Visitors.AsQueryable();
@@ -32,13 +32,14 @@ namespace SignalRApi.Model
         public List<VisitorChart> GetVisitorChartList()
         {
             List<VisitorChart> visitorCharts = new List<VisitorChart>();
-            using (var command=_context.Database.GetDbConnection().CreateCommand())
+            using (var command = _context.Database.GetDbConnection().CreateCommand())
             {
-                command.CommandText = "query sorgu";
+                command.CommandText = "select * from crosstab ('Select VisitDate,City,CityVisitCount from Visitors order by 1,2') as ct(VisitDate date,City1 int, City2 int, City3 int, City4 int, City5 int)";
+
                 command.CommandType = System.Data.CommandType.Text;
                 _context.Database.OpenConnection();
 
-                using (var reader=command.ExecuteReader())
+                using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {

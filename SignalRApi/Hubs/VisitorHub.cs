@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace SignalRApi.Hubs
 {
-    public class VisitorHubs:Hub
+    public class VisitorHub:Hub
     {
         private readonly VisitorService _visitorService;
 
-        public VisitorHubs(VisitorService visitorService)
+        public VisitorHub(VisitorService visitorService)
         {
             _visitorService = visitorService;
         }
